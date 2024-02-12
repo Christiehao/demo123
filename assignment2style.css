@@ -47,7 +47,7 @@
 
 .nav li a {text-decoration: none; color: inherit}
 
-input[type="submit"] {background-color:#FFFCFF;}
+input[type="submit"] {background-color:#FFFCFF; color:#1F1F1E}
 
 input[type="submit"]:hover {background-color:#292D25; color:#FFFCFF}
 
