@@ -17,20 +17,16 @@
     flex-flow: row wrap; justify-content: center;
 }
 
+.flexbox.test{
+    display:flex;
+    flex-direction: row; justify-content: center;
+}
+
 #box {
     background-color:#8E9389; color:#FFFCFF; width: 100%; display:flex;
     font-size: 20px; padding: 30px 20px 30px 20px; box-sizing: border-box;
     align-items: center; justify-content: center;
     text-align: center; font-family: sans-serif;
-}
-
-.boxcontent.testimonials{
-    table td {font-size:20px; color:#1F1F1E; font-family: sans-serif;}
-}
-
-.boxcontent{
-    table th {text-align: center; font-size:50px; font-family: sans-serif; color:#50514F}
-    table td {text-align: center; font-family: sans-serif; color:#8E9389; font-weight:bold;}
 }
 
 #footer{
@@ -65,4 +61,10 @@ input[type="text"] {padding:5px}
     @media(max-width: 479px) {
         flex-flow: column; justify-content:end;
     }
+}
+
+.container{
+    display: flex; 
+    flex-flow: column wrap;
+    align-items: center; 
 }
