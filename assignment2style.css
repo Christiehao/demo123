@@ -18,14 +18,14 @@
 }
 
 #box {
-    background-color:#8E9389; color:#FFFCFF; height:250px; width: 100%; display:flex;
-    font-size: 20px; padding: 5px 20px 5px 20px; box-sizing: border-box;
+    background-color:#8E9389; color:#FFFCFF; width: 100%; display:flex;
+    font-size: 20px; padding: 30px 20px 30px 20px; box-sizing: border-box;
     align-items: center; justify-content: center;
     text-align: center; font-family: sans-serif;
 }
 
 .boxcontent.testimonials{
-    table td {font-size:20px; color:#1F1F1E; font-family:sans-serif;}
+    table td {font-size:20px; color:#1F1F1E; font-family: sans-serif;}
 }
 
 .boxcontent{
