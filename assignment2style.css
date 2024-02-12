@@ -83,7 +83,7 @@ input[type="text"] {padding:5px}
 .cell { 
     display:flex;
     max-width: 520px;
-    padding: 25px;
+    padding: 5px;
     border: 1px;
     align-items: center;
 } 
