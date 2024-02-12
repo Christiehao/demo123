@@ -6,12 +6,17 @@
         <title>Accepted</title>
             <style type = "text/css">
                 #landingBox{
+                    display: flex;
                     width:100%;font-size:25px; color: #FFFCFF;
                     background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("jpeg-optimizer_scott-graham-5fNmWej4tAA-unsplash-min.jpg");
                     text-align: left; font-family: sans-serif;
                     padding-top: 50px; padding-left: 50px;
                     background-size:cover; background-position: 0 100%; height:450px;
                     box-sizing: border-box;
+                }
+
+                #landingtext{
+                    flex-basis: 100%;
                 }
 
                 table th {text-align: center; font-size:80px; font-family: sans-serif; color:#50514F}
@@ -32,12 +37,15 @@
         </div>
 
             <div id = "landingBox">
-                Welcome to Accepted &copy;. </br>
+                <div id="landingtext">
+                    Welcome to Accepted &copy;. </br>
                 <p>We specialize in guiding high school students through
                     the intricate college application process for the past 30 years. Our expert team provides personalized support,
                     from making your essays stand out to navigating you through the admissions requirements. <br/></p>
                     <p>Let us empower you to achieve your academic goals and secure your future success.</p>
+                </div>
             </div>
+
             <div class="flexbox">
                 <div class="boxcontent">
                     <table cellpadding = "20" cellspacing = "2">
