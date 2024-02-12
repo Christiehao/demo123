@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type = "text/css" href="assignment2style.css">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <title>About Us</title>
+
+        <style type="text/css">
+            label, section-label {width: 100px; display: inline-block}
+            label.sub-label {width: auto}
+            </style>
+    </head>
+    <body>
+        <a href="landing.html"><img src="LOGO.png" width="130"></a>
+        <ul class="nav flexbox">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class = "banner">
+            <h1>Contact Us</h1>
+            <div class="pagesumtext" style="padding-bottom: 50px;">
+                Want to book a free consultation today?<br/>
+                Please fill out this form. One of our representatives will get back to you shortly.
+            </div>
+
+            <form method = "get" action = "#">
+                <label>Name:</label>
+                <input type = "text" placeholder = "enter your name" name = "name"/>
+                <br/>
+                <label>Email:</label>
+                <input type = "text" placeholder = "enter your email" name = "name"/><br/>
+                <label>Phone number:</label>
+                <input type = "text" name = "number"/>
+            </br>
+            <div class = "section-label" style="padding-top: 30px;"> I'm applying to:</div>
+            <label for = "apply" class = "sub-label">College</label><input type = "checkbox" name = "1" id = "apply">
+            <label class = "sub-label">Grad school</label><input type = "checkbox" name = "1" id = "apply">
+            <label class = "sub-label">Other</label><input type = "checkbox" name = "1" id = "apply">
+            </br>
+            <div class = "section-label" style="padding-top: 30px;"> My location:</div>
+            <select size = "1" name = "town">
+                <option>Somerville</option>
+                <option>Medford</option>
+                <option>Boston</option>
+            </select>
+            <br/>
+                <input type = "submit" value = "SUBMIT"/> 
+                <div class="pagesumtext" style="padding-top: 50px;">Thank you!</div>
+                </form>
+        </div>
+        <div id = "footer">
+            Book a 20-minute consultation session with Accepted today!</br>
+            <input type = "submit" value = "BOOK NOW"/>
+            <p style="font-size: 14px; color:#1F1F1E"> Terms of use | Privacy Policy</p>
+        </div>
+    </body>
+</html>
