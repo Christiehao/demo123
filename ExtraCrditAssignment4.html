@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Joe's Hotdog Stand</title>
+    </head>
+
+    <body>
+        <h1>Your orders at Joe's Hotdog Stand</h1>
+
+        <style type = "text/css">
+            body{
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h1{
+                text-align: center;
+            }
+
+            .tablecontainer{
+                text-align: center;
+            }
+
+            .tableafterline,td{
+                vertical-align: bottom;
+            }
+        </style>
+
+        <script>
+            var itemprices = {
+                "Hot Dogs":4.65,
+                "French Fries": 3.75,
+                "Drinks": 1.89
+            }
+
+            var numDogs
+                var numFries 
+                var numSoda
+
+            function getInfo() {
+                var info = {};
+
+                // this gives me num of items
+                for (item in itemprices){
+                    var input = prompt("How many " + item + " would you like?")
+                    info[item] = input
+                }
+
+                numDogs = info["Hot Dogs"]
+                numFries = info["French Fries"]
+                numSoda = info["Drinks"]
+
+                return info;
+            }
+
+            getInfo()
+
+            var rawTotal = (itemprices["Hot Dogs"]) *numDogs + (itemprices["Drinks"])*numSoda + (itemprices["French Fries"])*numFries
+
+            discountedTotal = rawTotal*.9
+            let discountAmount = rawTotal*.1
+
+            var discountedtax = discountedTotal*.0625
+            var discountedfinalTotal = discountedTotal + discountedtax
+ 
+            var tax = rawTotal*.0625
+            var finalTotal = rawTotal + tax
+
+            function showMoney(number) {
+                var int = getIntegerPart(number)
+                var fractionalPart = getFractionalPart(number)
+                var fac = roundFractionalPart(fractionalPart)
+                var twoDecPlacesNum = int + '.' + fac
+                return twoDecPlacesNum;
+            }
+
+            function getIntegerPart(number) {
+                var integerPart = 0;
+                while (number >= 1) {
+                    number -= 1;
+                    integerPart++;
+                }
+                return integerPart;
+            }
+
+            function getFractionalPart(number) {
+                var integerPart = 0;
+                while (integerPart <= number) {
+                    integerPart++;
+                }
+                integerPart--;
+
+                var fractionalPart = number - integerPart;
+                return fractionalPart;
+            }
+
+            function roundFractionalPart(fractionalPart) {
+                var roundedFractionalPart = '';
+                var precision = 2;
+                for (var i = 0; i < precision; i++) {
+                    fractionalPart *= 10;
+                    var digit = getIntegerPart(fractionalPart);
+                    roundedFractionalPart += digit;
+                    fractionalPart -= digit;
+                }
+                var thirdDecimal = getIntegerPart(fractionalPart*10)
+                if(thirdDecimal >= 5){
+                    var temp
+                    temp = parseInt(roundedFractionalPart)
+                    temp++
+                    console.log("THIS IS TEMP " + temp)
+                    roundedFractionalPart = temp.toString();
+                }
+                return roundedFractionalPart;
+            }
+        </script>
+
+        <div class = "tablecontainer">  
+            <table class = "table" cellpadding = "15" cellspacing = "1" align="center">
+                <tr>
+                    <td style="font-weight: bold;">Quantity</td>
+                    <td style="font-weight: bold;">Name of item</td>
+                    <td style="font-weight: bold;">Amount</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <script>
+                            document.write(numDogs)
+                        </script>
+                    </td>
+                    <td>Hot Dogs</td>
+                    <td>
+                        <script>
+                            document.write("$" + showMoney(itemprices["Hot Dogs"]*numDogs))
+                        </script>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <script>
+                            document.write(numFries)
+                        </script>
+                    </td>
+                    <td>French Fries</td>
+                    <td>
+                        <script>
+                            document.write("$" + showMoney(itemprices["French Fries"]*numFries))
+                        </script>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <script>
+                            document.write(numSoda)
+                        </script>
+                    </td>
+                    <td>Drinks</td>
+                    <td>
+                        <script>
+                            document.write("$" + showMoney(itemprices["Drinks"]*numSoda))
+                        </script>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            <div style="text-align: center;">-----------------------------------------------</div>
+            <table class = "tableafterline" cellpadding = "8" cellspacing = "1" align="center">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Subtotal:</td>
+                    <td>
+                        <script>
+                            document.write("$" + showMoney(rawTotal))
+                        </script>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Discount (10%):</td>
+                    <td>
+                        <script>
+                            if(rawTotal < 25){
+                                document.write( "$ 0.00")
+                            }
+                            else{
+                                document.write("$" + showMoney(discountAmount))
+                            }
+                        </script>
+                    </td>
+                </tr>   
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Discounted <br/>Subtotal:</td>
+                    <td>
+                        <script>
+                            if(rawTotal < 25){
+                                document.write("$" + showMoney(rawTotal))
+                            }
+                            else{
+                                document.write("$" + showMoney(discountedTotal))
+                            }
+                        </script>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Sales Tax (6.25%):</td>
+                    <td>
+                        <script>
+                            if(rawTotal < 25){
+                                document.write("$" + showMoney(tax))
+                            }
+                            else{
+                                document.write("$" + showMoney(discountedtax))
+                            }
+                        </script>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td style="font-weight: bold;">TOTAL:</td>
+                    <td>
+                        <script>
+                            if(rawTotal < 25){
+                                document.write("$" + showMoney(finalTotal))
+                            }
+                            else{
+                                document.write("$" + showMoney(discountedfinalTotal))
+                            }
+                        </script>
+                    </td>
+                </tr>
+            </table>
+        <div style="text-align: center; font-weight:bold; font-size:25px; padding-top: 30px;">THANK YOU!</div>
+    </body>
+</html>
