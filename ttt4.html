@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style type = "text/css">
+            h1{
+                text-align: center; font-size: 45px; color:blueviolet;
+                font-family: sans-serif;
+            }
+
+            .box{
+                margin: 0 auto;
+                color:darkblue; max-width:500px; font-family: sans-serif;
+                margin-bottom: 5px;
+                background-color: antiquewhite; font-size: 35px; border: 2px solid;
+                text-align: center;
+            }
+
+            .square{
+                display:flex;
+                height:100px; width: 100px;
+                font-size: 50px;
+                text-align: center;
+                border: 2px solid;
+                margin-right: 5px;
+                margin-top: 5px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .squarecontainer{
+                display:flex;
+                justify-content: center; align-items: center;
+                flex-wrap: wrap;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .square:hover{
+                background-color:bisque;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Play Tic Tac Toe!</h1>
+        <div class="box" id="turn">NONSENSE</div>
+        <div class="box" id ="win">Winner will be displayed here.</div>
+        <div class = "squarecontainer">
+            <script>
+            const NUM_SQUARES = 9;
+            for (let i=0; i<NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+
+            let tracker = Math.floor(Math.random()*10)
+            console.log("THIS IS TRACKER: " + tracker)
+            // determine who starts first
+            if(tracker%2 == 1){
+                document.getElementById("turn").innerHTML = "Player X's turn"
+            }
+            else{
+                document.getElementById("turn").innerHTML = "Player O's turn"
+            }
+
+            moves = ["-","-","-","-","-","-","-","-","-"]
+            winConditions = ["---","---","---","---","---","---","---","---"]
+
+            let sq = document.querySelectorAll(".square")
+            let contGame = true
+
+            sq.forEach(function(item, index){
+                item.addEventListener("click",function(){
+                    if(!contGame){
+                        return
+                    }
+                        
+                        if(tracker%2 == 1){
+                            if(item.innerHTML == ""){
+                                item.innerHTML="X"
+                                document.getElementById("turn").innerHTML = "Player O's turn"
+                                tracker += 1
+                            }
+                        }
+                    else{
+                        if(item.innerHTML == ""){
+                            item.innerHTML="O"
+                            document.getElementById("turn").innerHTML = "Player X's turn"
+                            tracker += 1
+                        }
+                    }
+                    if(item.innerHTML == "X"){
+                        moves[index]="X"
+                    }
+                    else if(item.innerHTML == "O"){
+                        moves[index]="O"
+                    }
+                    console.log("THIS IS MOVES ARR: " + moves)
+                    UpdateWins()
+
+                })
+            })
+
+            function checkStalemate(){
+                let isStalemate = true
+                for(let i=0;i<NUM_SQUARES;i++){
+                    if(moves[i]=="-"){
+                        isStalemate = false
+                    }
+                }
+                if(isStalemate){
+                    document.getElementById("win").innerHTML = "It's a stalemate."
+                    contGame = false
+                }
+            }
+
+            function UpdateWins(){
+                winConditions[0] = moves[0]+moves[1]+moves[2]
+                winConditions[1] = moves[3]+moves[4]+moves[5]
+                winConditions[2] = moves[6]+moves[7]+moves[8]
+                winConditions[3] = moves[0]+moves[3]+moves[6]
+                winConditions[4] = moves[1]+moves[4]+moves[7]
+                winConditions[5] = moves[2]+moves[5]+moves[8]
+                winConditions[6] = moves[0]+moves[4]+moves[8]
+                winConditions[7] = moves[2]+moves[4]+moves[6]
+
+                winConditions.forEach(function(item){
+                    if(item == "XXX"){
+                        document.getElementById("win").innerHTML = "X wins!"
+                        contGame = false
+                    }
+                    else if(item == "OOO"){
+                        document.getElementById("win").innerHTML = "O wins!"
+                        contGame = false
+                    }
+                    checkStalemate()
+                })
+            }
+          
+            </script>
+            <input type="button" value="Start Game" onclick="reset()">
+
+            <script>
+                function reset(){
+                    document.getElementById("win").innerHTML = "Winner will be displayed here."
+                    for(i=0;i<NUM_SQUARES;i++){
+                        document.getElementsByClassName("square")[i].innerHTML=""
+                        moves = ["-","-","-","-","-","-","-","-","-"]
+                        winConditions = ["---","---","---","---","---","---","---","---"]
+                    }
+                    contGame = true
+                }
+            </script>
+        </div>
+    </body>
+</html>

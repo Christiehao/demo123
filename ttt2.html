@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style type = "text/css">
+            h1{
+                text-align: center; font-size: 45px; color:blueviolet;
+                font-family: sans-serif;
+            }
+            .box{
+                margin: 0 auto;
+                color:darkblue; max-width:300px; font-family: sans-serif;
+                margin-bottom: 10px;
+                background-color: antiquewhite; font-size: 35px; border: 2px solid;
+                text-align: center;
+            }
+            .square{
+                display:flex;
+                height:100px; width: 100px;
+                font-size: 50px;
+                text-align: center;
+                border: 2px solid;
+                margin-right: 5px;
+                margin-top: 5px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .squarecontainer{
+                display:flex;
+                justify-content: center; align-items: center;
+                flex-wrap: wrap;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .square:hover{
+                background-color:bisque;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Play Tic Tac Toe!</h1>
+        <div class="box">It's X's turn.</div>
+        <div class="box">X wins!</div>
+        <div class = "squarecontainer">
+            <script>
+
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+        </script>
+        </div>
+        
+    </body>
+    
+
+
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style type = "text/css">
+            h1{
+                text-align: center; font-size: 45px; color:blueviolet;
+                font-family: sans-serif;
+            }
+
+            .box{
+                margin: 0 auto;
+                color:darkblue; max-width:300px; font-family: sans-serif;
+                margin-bottom: 5px;
+                background-color: antiquewhite; font-size: 35px; border: 2px solid;
+                text-align: center;
+            }
+
+            .square{
+                display:flex;
+                height:100px; width: 100px;
+                font-size: 50px;
+                text-align: center;
+                border: 2px solid;
+                margin-right: 5px;
+                margin-top: 5px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .squarecontainer{
+                display:flex;
+                justify-content: center; align-items: center;
+                flex-wrap: wrap;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .square:hover{
+                background-color:bisque;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Play Tic Tac Toe!</h1>
+        <div class="box" id="turn">NONSENSE</div>
+        <div class="box" id ="win">X wins!</div>
+        <div class = "squarecontainer">
+            <script>
+            const NUM_SQUARES = 9;
+            for (let i=0; i<NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+            let squarebtn = document.getElementsByClassName("square")
+            let tracker = Math.floor(Math.random()*10)
+            console.log("THIS IS TRACKER: " + tracker)
+            // determine who starts first
+            if(tracker%2 == 1){
+                document.getElementById("turn").innerHTML = "Player X's turn"
+            }
+            else{
+                document.getElementById("turn").innerHTML = "Player O's turn"
+            }
+            
+            for(let i=0; i<NUM_SQUARES; i++){
+                squarebtn[i].addEventListener("click",displayLetter)
+
+                function displayLetter(){
+                    let temp = document.getElementById("sq" + i)
+                    if(tracker%2 == 1){
+                        if(temp.innerHTML == ""){
+                            temp.innerHTML+="X"
+                            alert("The number of square is " + i)
+                            document.getElementById("turn").innerHTML = "Player O's turn"
+                            tracker += 1
+                        }
+                    }
+                    else{
+                        if(temp.innerHTML == ""){
+                            temp.innerHTML+="O"
+                            alert("The number of square is " + i)
+                            document.getElementById("turn").innerHTML = "Player X's turn"
+                            tracker += 1
+                        }
+                    }
+                }
+            }
+            </script>
+            <input type="button" value="Start Game" onclick="reset()">
+
+            <script>
+                function reset(){
+                    for(i=0;i<NUM_SQUARES;i++){
+                        document.getElementsByClassName("square")[i].innerHTML=""
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
