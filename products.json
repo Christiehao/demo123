@@ -1,0 +1,62 @@
+[
+{
+    "name" :"Rose",
+    "price": "$1.87",
+    "description": "Naturally blue and fragrant",
+    "categories":["plant","under $10"]
+},
+{
+    "name" :"Bracelet",
+    "price": "$50.73",
+    "description": "Handmade, adjustable size",
+    "categories":"accessories"
+},
+{
+    "name" :"Frying pan",
+    "price": "$100.25",
+    "description": "SLightweight and keeps your beverages fresh",
+    "categories":"cooking tool"
+},
+{
+    "name" :"Thermo",
+    "price": "$30.35",
+    "description": "Stainless steel, imported from Japan",
+    "categories":"cooking tool"
+},
+{
+    "name" :"UVA-safe sunglasses",
+    "price": "$9.95",
+    "description": "Brown",
+    "categories":["under $10","accessories"]
+},
+{
+    "name" :"Basil",
+    "price": "$5.00",
+    "description": "1.62oz",
+    "categories":["cooking tool","under $10"]
+},
+{
+    "name" :"Tote bag",
+    "price": "$12.57",
+    "description": "Made of 100% ethically-sourced cotton",
+    "categories":"accessories"
+},
+{
+    "name" :"Office chair",
+    "price": "$36.81",
+    "description": "Plastic, ergonomically designed",
+    "categories":"office supplies"
+},
+{
+    "name" :"Stapler set",
+    "price": "$20.56",
+    "description": "Set of 3",
+    "categories":"office supplies"
+},
+{
+    "name" :"Black pen",
+    "price": "$9.99",
+    "description": "Smooth ink and comfortable grip",
+    "categories":["office supplies","under $10"]
+}
+]
