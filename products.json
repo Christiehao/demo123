@@ -9,19 +9,19 @@
     "name" :"Bracelet",
     "price": "$50.73",
     "description": "Handmade, adjustable size",
-    "categories":"accessories"
+    "categories":["accessories"]
 },
 {
     "name" :"Frying pan",
     "price": "$100.25",
     "description": "SLightweight and keeps your beverages fresh",
-    "categories":"cooking tool"
+    "categories":["cooking tool"]
 },
 {
     "name" :"Thermo",
     "price": "$30.35",
     "description": "Stainless steel, imported from Japan",
-    "categories":"cooking tool"
+    "categories":["cooking tool"]
 },
 {
     "name" :"UVA-safe sunglasses",
@@ -39,19 +39,19 @@
     "name" :"Tote bag",
     "price": "$12.57",
     "description": "Made of 100% ethically-sourced cotton",
-    "categories":"accessories"
+    "categories":["accessories"]
 },
 {
     "name" :"Office chair",
     "price": "$36.81",
     "description": "Plastic, ergonomically designed",
-    "categories":"office supplies"
+    "categories":["office supplies"]
 },
 {
     "name" :"Stapler set",
     "price": "$20.56",
     "description": "Set of 3",
-    "categories":"office supplies"
+    "categories":["office supplies"]
 },
 {
     "name" :"Black pen",
