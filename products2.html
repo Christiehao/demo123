@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+	crossorigin="anonymous"></script>
+    <style type="text/css">
+		body,html {font-size: 24px;}
+        #jsdata{
+            font-size: 24px;
+        }
+	</style>
+    
+    </head>
+    <body>
+        <script language="javascript">
+            $.get("https://christiehao.github.io/demo123/products.json",
+            function(data){
+                str = JSON.stringify(data);
+                prodlist = JSON.parse(str);
+
+                for(let i=0;i<10;i++){
+                    document.getElementById('jsdata').innerHTML+= "<strong>" + prodlist[i].name+" </strong> <br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].price+"<br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].description+"<br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].categories+"<br> <br>";
+                }
+            })
+        </script>
+        
+        <div id="jsdata">&nbsp;</div>
+        <div id="filterlist">&nbsp;</div>
+    </body>
+</html>

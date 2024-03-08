@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+	crossorigin="anonymous"></script>
+    <style type="text/css">
+		body,html {font-size: 24px; font-family: sans-serif;}
+        #jsdata{
+            color:darkgrey;
+        }
+        #filteredlist{
+            color:darkcyan; font-weight: bold;
+        }
+	</style>
+    
+    </head>
+    <body>
+        Search product name by categories:
+        <select name="product" id="productlist">
+        </select>
+        <form>
+            <input type="button" value="Filter" id="btn1">
+        </form>
+        <p>
+            Your search results will appear here:
+        <div id="filteredlist"></div>
+        <hr>
+        <div id="jsdata"></div>
+
+        <script language="javascript">
+            catarray = [];
+            namearray = [];
+
+            $.get("https://christiehao.github.io/demo123/products.json",
+            function(data){
+                str = JSON.stringify(data);
+                prodlist = JSON.parse(str);
+                for(let i=0;i<10;i++){
+                    document.getElementById('jsdata').innerHTML+= "<strong>" + prodlist[i].name+" </strong> <br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].price+"<br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].description+"<br>";
+                    document.getElementById('jsdata').innerHTML+=prodlist[i].categories+"<br> <br>";
+                    for (let j = 0; j < prodlist[i].categories.length; j++){
+                        if(!(catarray.includes(prodlist[i].categories[j]))){
+                            catarray.push(prodlist[i].categories[j]);
+                        }
+                    }
+                }
+                select = document.getElementById("productlist")
+                for (let i = 0; i < catarray.length; i++){
+                    let s = "<option value = '' " + i + "'>" + catarray[i] + "</option>";
+                    select.innerHTML += s;
+                }
+        
+                $("#btn1").on("click", function(){
+                    selectedcat = $("#productlist option:selected")[0].innerHTML;
+                    displayList=[];
+                    for(let i=0;i<10;i++){
+                        for (let j = 0; j < prodlist[i].categories.length; j++){
+                            if(prodlist[i].categories[j] == selectedcat){
+                                displayList += prodlist[i].name + "<br>"
+                            }
+                        }
+                    }
+                    document.getElementById("filteredlist").innerHTML =displayList
+                })
+            })
+        </script>
+    </body>
+</html>
