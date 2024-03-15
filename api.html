@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Art Info</title>
+<style>
+    .prompt{
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1>MoMA Art Info</h1>
+    <div id="object-details">Loading...</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects/100")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("object-details").innerHTML = `
+                        <h2>${data.objectID}: ${data.title}</h2>
+                        <p>Artist: ${data.artistDisplayName}</p>
+                        <p>Date: ${data.objectDate}</p>
+                        <p>Medium: ${data.medium}</p>
+                        <p>Dimensions: ${data.dimensions}</p>
+                        <p>Department: ${data.department}</p>
+                        <p>Classification: ${data.objectName}</p>
+                        <img src="${data.primaryImage}", width=60%>
+                    `;
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        });
+    </script>
+    <hr>
+    <p class="prompt">Describe the API you selected and what it does.</p>
+    <p>The API is called Metropolitan Museum of Art. It compiles information about the artworks displayed in this museum.</p>
+    <p class="prompt">Cite the website where you found it.</p>
+    <p>https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/</p>
+    <p class="prompt">Describe the options/parameters you used for the API request.</p>
+    <p>I used fetch to get the information in this json object, which I called "data".</p>
+    <p class="prompt">Give two applications where this API would be helpful.</p>
+    <ol>
+        <li>An app for museum visitors to learn about the exhibits;</li>
+        <li>A art class teaching aid that quickly searches the year of a given artwork in MoMA.</li>
+    </ol>
+
+    
+</body>
+</html>
